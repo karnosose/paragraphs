@@ -11,16 +11,35 @@ class Paragraphs extends Component {
     }
   }
 
+  is_hexadecimal(str) {
+    const regexp = /^[0-9a-fA-F]+$/;
+    
+    if (regexp.test(str))
+      {
+        return true;
+      }
+    else
+      {
+        return false;
+      }
+  }
+
   changeTextColor = ({target}) => {
-    if(target.value){
-      this.setState({color : target.value})
+    if(target.value && this.is_hexadecimal(target.value)){
+      console.log(target.value)
+
+      this.setState({color : `#` + target.value})
+    } else {
+      this.setState({color : ""})
     }
   }
 
   changeBackgroundColor = ({target}) => {
     if(target.value){
       console.log(target.value)
-      this.setState({backgroundcolor : target.value})
+      this.setState({backgroundcolor : `#` + target.value})
+    } else {
+      this.setState({backgroundcolor : ""})
     }
   }
 
