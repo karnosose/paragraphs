@@ -1,61 +1,64 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './paragraphs.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./paragraphs.css";
 
 class Paragraphs extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       color: "",
       backgroundcolor: ""
-    }
+    };
   }
 
   is_hexadecimal(str) {
     const regexp = /^[0-9a-fA-F]+$/;
-    
-    if (regexp.test(str))
-      {
-        return true;
-      }
-    else
-      {
-        return false;
-      }
-  }
 
-  changeTextColor = ({target}) => {
-    if(target.value && this.is_hexadecimal(target.value)){
-      console.log(target.value)
-
-      this.setState({color : `#` + target.value})
+    if (regexp.test(str)) {
+      return true;
     } else {
-      this.setState({color : ""})
+      return false;
     }
   }
 
-  changeBackgroundColor = ({target}) => {
-    if(target.value){
-      console.log(target.value)
-      this.setState({backgroundcolor : `#` + target.value})
+  changeTextColor = ({ target }) => {
+    if (target.value && this.is_hexadecimal(target.value)) {
+      console.log(target.value);
+
+      this.setState({ color: `#` + target.value });
     } else {
-      this.setState({backgroundcolor : ""})
+      this.setState({ color: "" });
     }
-  }
+  };
+
+  changeBackgroundColor = ({ target }) => {
+    if (target.value) {
+      console.log(target.value);
+      this.setState({ backgroundcolor: `#` + target.value });
+    } else {
+      this.setState({ backgroundcolor: "" });
+    }
+  };
 
   render() {
-    const {backgroundcolor, color} = this.state;
+    const { backgroundcolor, color } = this.state;
     const STYLE = {
       backgroundColor: backgroundcolor,
       color: color
-    }
+    };
     return (
       <div className="paragraphs">
-        <p style={STYLE}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        <p style={STYLE}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        <input onChange={this.changeTextColor}></input>
-        <br></br>
-        <input onChange={this.changeBackgroundColor}></input>
+        <p style={STYLE}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+        </p>
+        <p style={STYLE}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+        </p>
+        <input onChange={this.changeTextColor} />
+        <br />
+        <input onChange={this.changeBackgroundColor} />
       </div>
     );
   }
