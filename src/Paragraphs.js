@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './paragraphs.css';
 
 class Paragraphs extends Component {
   constructor(props){
@@ -50,10 +50,11 @@ class Paragraphs extends Component {
       color: color
     }
     return (
-      <div className="Paragraphs">
+      <div className="paragraphs">
         <p style={STYLE}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         <p style={STYLE}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         <input onChange={this.changeTextColor}></input>
+        <br></br>
         <input onChange={this.changeBackgroundColor}></input>
       </div>
     );
